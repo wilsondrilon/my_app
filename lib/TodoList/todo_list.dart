@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/Drawer/custom_drawer.dart';
 import 'package:my_app/TodoList/todo_list_edit.dart';
 
 class ToDoList extends StatefulWidget {
@@ -23,28 +24,21 @@ class _ToDoListState extends State<ToDoList> {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'ToDo List',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        drawer: const CustomDrawerWidget(),
         body: Container(
           padding: const EdgeInsets.all(8.0),
           height: size.height,
           width: size.width,
           child: Column(
             children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.all(8.0),
-                      child: const Text(
-                        "ToDo List",
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
               Row(
                 children: [
                   Expanded(

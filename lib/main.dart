@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/Drawer/custom_drawer.dart';
 import 'package:my_app/TodoList/todo_list.dart';
 
 void main() {
@@ -12,13 +13,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MyHomePage(title: 'Home'),
+        '/todo_list': (context) => const ToDoList(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'ToDo List'),
+      // home: const MyHomePage(title: 'ToDo List'),
     );
   }
 }
@@ -31,6 +37,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const CustomDrawerWidget(),
       appBar: AppBar(
         title: Text(title),
       ),
